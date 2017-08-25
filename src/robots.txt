@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Sitemap: https://codingblocks.com/sitemap.xml
+Sitemap: https://swag.codingblocks.com/sitemap.xml
+Sitemap: https://codingblocks.com/resources/sitemap.xml

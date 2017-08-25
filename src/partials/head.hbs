@@ -1,0 +1,33 @@
+<title>{{title}}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Meta -->
+{{#each metas}}
+    {{#if name}}
+        <meta name="{{{name}}}" content="{{{content}}}"/>
+    {{else if property}}
+        <meta property="{{{property}}}" content="{{{content}}}"/>
+    {{/if}}
+{{/each}}
+<!-- End Meta -->
+
+<!-- Opengraphs -->
+{{# if openGraph}}
+    <meta property="og:type" content="{{#if type}}{{type}}{{else}}website{{/if}}">
+    <meta property="og:url" content="{{{url}}}">
+    <meta property="og:title" content="{{{title}}}">
+    <meta property="og:image" content="{{{imgSrc}}}">
+    <meta property="og:description" content="{{{description}}}"/>
+{{/if}}
+<!-- Endo Opengraphs -->
+
+<!-- Fonts and icons -->
+<link href="{{#relative 'https://fonts.googleapis.com/css?family=Montserrat:400,700,200' @file.path}}{{/relative}}"
+      rel="stylesheet"/>
+<link href="{{#relative 'https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css'
+                        @file.path}}{{/relative}}" rel="stylesheet"/>
+<!-- CSS Files -->
+<link href="{{#relative '/assets/css/bootstrap.min.css' @file.path}}{{/relative}}" rel="stylesheet"/>
+<link href="{{#relative '/assets/css/theme.css' @file.path}}{{/relative}}" rel="stylesheet"/>
+<link href="{{#relative '/assets/css/custom.css' @file.path}}{{/relative}}" rel="stylesheet"/>
