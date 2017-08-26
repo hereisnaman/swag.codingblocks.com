@@ -1,44 +1,75 @@
-<div class="card col-sm-6 col-md-3 col-xl-3 rounded justify-content-center product-card">
-    <div class="image-container text-center">
-        <img src="{{#relative product.[imgSrc].[0] @file.path}}{{/relative}}"
-             class="img-fluid">
-        <div class="row link">
-            <div class="item link-view col-6" data-toggle="modal" data-target="#product-{{product.id}}">
-                <h5><i class="fa fa-external-link" aria-hidden="true"></i> View</h5>
-            </div>
-            <a class="item link-buy col-6" href="{{#relative product.link @file.path}}{{/relative}}"
+{{#with product}}
+    <div class="card col-sm-6 col-md-3 col-xl-3 rounded justify-content-center product-card">
+        <div class="image-container text-center">
+            <a href="{{#relative link @file.path}}{{/relative}}"
                target="_blank">
-                <h5><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy</h5>
+                <img src="{{#relative [imgSrc].[0] @file.path}}{{/relative}}"
+                     class="img-fluid">
             </a>
+            <div class="row link">
+                <div class="item link-view col-12" data-toggle="modal" data-target="#product-{{id}}">
+                    <h5><i class="fa fa-external-link" aria-hidden="true"></i> Quick View</h5>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="details">
-        <h5 class="name">{{product.name}}</h5>
-        <p class="price">{{#addComma product.price}}{{/addComma}}</p>
-    </div>
+        <div class="details">
+            <h5 class="name">{{name}}</h5>
+            <p class="price">₹ {{#addComma price}}{{/addComma}}</p>
+        </div>
 
-    <!-- Modal Core -->
-    <div class="modal fade" id="product-{{product.id}}" tabindex="-1" role="dialog"
-         aria-labelledby="product-{{product.id}}Label"
-         aria-hidden="true">
-        <div class=" modal-dialog col-md-8">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
-                    </button>
-                    <h4 class="modal-title" id="product-{{product.id}}Label">{{product.name}}</h4>
-                </div>
-                <div class="modal-body">
-                    {{product.description}}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-info btn-simple" data-dismiss="modal">Close
-                    </button>
-                    <a href="{{#relative product.link @file.path}}{{/relative}}" target="_blank"
-                       class="btn btn-danger btn-simple">Buy
-                    </a>
+        <!-- Modal Core -->
+        <div class="modal fade" id="product-{{id}}" tabindex="-1" role="dialog"
+             aria-labelledby="product-{{id}}Label"
+             aria-hidden="true">
+            <div class=" modal-dialog col-md-8">
+                <div class="modal-content row">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                        </button>
+                    </div>
+                    <div class="row container content-box">
+                        <div class="col-sm-12 col-md-5 col-lg-5">
+                            <div id="productCarousel{{id}}" class="carousel slide">
+                                <div class="carousel-inner" role="listbox">
+                                    {{#each imgSrc as | src index| }}
+                                        <div class="carousel-item {{#ifEquals index 0}}active{{/ifEquals}}">
+                                            <img class="d-block" src="{{#relative src @file.path}}{{/relative}}"
+                                                 alt="{{name}}">
+                                        </div>
+                                    {{/each}}
+                                </div>
+                                <a class="carousel-control-prev" href="#productCarousel{{id}}" role="button"
+                                   data-slide="prev">
+                                    <i class="now-ui-icons arrows-1_minimal-left"></i>
+                                </a>
+                                <a class="carousel-control-next" href="#productCarousel{{id}}" role="button"
+                                   data-slide="next">
+                                    <i class="now-ui-icons arrows-1_minimal-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-7 col-lg-5 details">
+                            <h2>{{name}}</h2>
+                            <p class="badge badge-info">{{type}}</p>
+                            <p>{{{description}}}</p>
+                            <p class="price">₹ {{#addComma price}}{{/addComma}}</p>
+                            <a class="btn btn-danger btn-round"
+                               href="{{#relative externalLink @file.path}}{{/relative}}" target="_blank">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                Buy Now
+                            </a>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info btn-simple" data-dismiss="modal">Close
+                        </button>
+                        <a href="{{#relative externalLink @file.path}}{{/relative}}" target="_blank"
+                           class="btn btn-danger btn-simple"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            Buy Now
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+{{/with}}

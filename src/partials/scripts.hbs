@@ -11,3 +11,51 @@
         type="text/javascript"></script>
 <script src="{{#relative '/assets/js/plugins/countup.js' @file.path}}{{/relative}}" type="text/javascript"></script>
 <script src="{{#relative '/assets/js/theme.js' @file.path}}{{/relative}}" type="text/javascript"></script>
+<script src="{{#relative '/assets/js/plugins/social.js' @file.path}}{{/relative}}" type="text/javascript"></script>
+<script type="text/javascript">
+    $().ready(function () {
+        $('#twitter').sharrre({
+            share: {
+                twitter: true
+            },
+            enableHover: false,
+            enableTracking: true,
+            buttons: {twitter: {via: 'CodingBlocksIN'}},
+            click: function (api, options) {
+                api.simulateClick();
+                api.openPopup('twitter');
+            },
+            template: '<i class="fa fa-twitter"></i> Tweet',
+            url: 'https://swag.codingblocks.com/'
+        });
+
+        $('#facebook').sharrre({
+            share: {
+                facebook: true
+            },
+            enableHover: false,
+            enableTracking: true,
+            click: function (api, options) {
+                api.simulateClick();
+                api.openPopup('facebook');
+            },
+            template: '<i class="fa fa-facebook-square"></i> Share',
+            url: 'https://swag.codingblocks.com/'
+        });
+
+        $('#googlePlus').sharrre({
+            share: {
+                googlePlus: true
+            },
+            enableHover: false,
+            enableTracking: true,
+            click: function (api, options) {
+                api.simulateClick();
+                api.openPopup('googlePlus');
+            },
+            template: '<i class="fa fa-google-plus"></i> Share',
+            url: 'https://swag.codingblocks.com'
+        });
+
+    });
+</script>

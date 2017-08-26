@@ -1,5 +1,13 @@
+body {
+    background: #CCCCCC;
+}
+
 .navbar, .navbar-logo {
     max-height: 53px;
+}
+
+.position-absolute {
+    position: absolute;
 }
 
 .wrapper {
@@ -12,12 +20,19 @@
     margin: 0;
 }
 
+.main-raised {
+    margin: -150px 30px 0px;
+    border-radius: 6px;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
 .container.card-block {
     margin-left: 5%;
     margin-right: 5%;
 }
 
 .product-card {
+    margin: 20px;
     font-weight: 300;
     padding: 0;
 }
@@ -40,7 +55,7 @@
 }
 
 .details .price {
-    color: #d9534f;
+    color: #3c763d;
     font-size: 18px;
     font-weight: 400;
     margin-bottom: 10px;
@@ -92,4 +107,67 @@
 .modal-dialog {
     max-width: 80% !important;
     justify-content: center;
+}
+
+.modal-header {
+    margin-bottom: 30px;
+}
+
+.modal-content .content-box {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    justify-content: center;
+}
+
+.content-box .details {
+    text-align: left;
+}
+
+.carousel .carousel-inner {
+    background: #f8f8f8;
+    box-shadow: none;
+}
+
+.carousel .now-ui-icons {
+    font-size: 5em;
+    font-weight: 800;
+}
+
+.sharing-area{
+    margin-top: 80px;
+}
+.sharing-area .btn{
+    margin: 15px 4px 0;
+    color: #FFFFFF;
+}
+.sharing-area .btn i{
+    font-size: 18px;
+    position: relative;
+    top: 2px;
+    margin-right: 5px;
+}
+.sharing-area .btn-twitter{
+    background-color: #55acee;
+    box-shadow: 0 2px 2px 0 rgba(85, 172, 238, 0.14), 0 3px 1px -2px rgba(85, 172, 238, 0.2), 0 1px 5px 0 rgba(85, 172, 238, 0.12);
+}
+.sharing-area .btn-twitter:hover{
+    box-shadow: 0 14px 26px -12px rgba(85, 172, 238, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(85, 172, 238, 0.2);
+}
+
+.sharing-area .btn-facebook{
+    background-color: #3b5998;
+    box-shadow: 0 2px 2px 0 rgba(59, 89, 152, 0.14), 0 3px 1px -2px rgba(59, 89, 152, 0.2), 0 1px 5px 0 rgba(59, 89, 152, 0.12);
+}
+.sharing-area .btn-facebook:hover{
+    box-shadow: 0 14px 26px -12px rgba(59, 89, 152, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(59, 89, 152, 0.2);
+}
+
+.sharing-area .btn-google-plus{
+    background-color: #dd4b39;
+    box-shadow: 0 2px 2px 0 rgba(221, 75, 57, 0.14), 0 3px 1px -2px rgba(221, 75, 57, 0.2), 0 1px 5px 0 rgba(221, 75, 57, 0.12);
+}
+.sharing-area .btn-google-plus:hover{
+    background-color: #dd4b39;
+    box-shadow: 0 14px 26px -12px rgba(221, 75, 57, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(221, 75, 57, 0.2);
 }

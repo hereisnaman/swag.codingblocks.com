@@ -1,0 +1,30 @@
+{{#with product}}
+    <div class="col-sm-12 col-md-5 col-lg-5">
+        <div id="productCarousel{{id}}" class="carousel slide">
+            <div class="carousel-inner" role="listbox">
+                {{#each imgSrc as | src index| }}
+                    <div class="carousel-item {{#ifEquals index 0}}active{{/ifEquals}}">
+                        <img class="d-block" src="{{#relative src @file.path}}{{/relative}}" alt="{{name}}">
+                    </div>
+                {{/each}}
+            </div>
+            <a class="carousel-control-prev" href="#productCarousel{{id}}" role="button" data-slide="prev">
+                <i class="now-ui-icons arrows-1_minimal-left"></i>
+            </a>
+            <a class="carousel-control-next" href="#productCarousel{{id}}" role="button" data-slide="next">
+                <i class="now-ui-icons arrows-1_minimal-right"></i>
+            </a>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-7 col-lg-5 details">
+        <h2>{{name}}</h2>
+        <p class="badge badge-info">{{type}}</p>
+        <p>{{{description}}}</p>
+        <p class="price">₹ {{#addComma price}}{{/addComma}}</p>
+        <a class="btn btn-danger btn-round"
+           href="{{#relative externalLink @file.path}}{{/relative}}" target="_blank">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            Buy Now
+        </a>
+    </div>
+{{/with}}

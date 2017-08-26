@@ -1,0 +1,16 @@
+{{#with header}}
+    <div class="wrapper">
+        <div class="page-header page-header-small clear-filter">
+            <div class="page-header-image" data-parallax="true"
+                 style="background-image: url('{{#if bgSrc}} {{#relative bgSrc @file.path}}
+                 {{/relative}} {{else}} /assets/img/bg/cover3.jpg {{/if}}');">
+            </div>
+            <div class="container">
+                <div class="content-center">
+                    <h1 class="text-uppercase">{{heading}}</h1>
+                    <h3>{{subHeading}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/with}}

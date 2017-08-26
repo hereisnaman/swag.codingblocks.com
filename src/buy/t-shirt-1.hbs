@@ -5,11 +5,13 @@
 </head>
 <body class="profile-page">
 {{> navbar}}
-{{> header header = header}}
-<section class="row main-wrapper main main-raised text-center justify-content-center">
-    <div class="container card-block">
+{{> header}}
+<section class="row main-wrapper  main main-raised">
+    <div class="row container card-block">
         {{#each products as | product index |}}
-            {{> productCard product = product}}
+            {{#ifEquals ../productId product.id}}
+                {{> productContent product = product}}
+            {{/ifEquals}}
         {{/each}}
     </div>
     {{> socialShare}}
