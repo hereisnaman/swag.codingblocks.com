@@ -1,8 +1,6 @@
-let gulp = require('gulp');
-let using = require('gulp-using');
-
-
-let config = require('../config').minify;
+let gulp = require('gulp'),
+    using = require('gulp-using'),
+    config = require('../config').minify;
 
 gulp.task('dev_minify', ['dev_html'], function () {
     let imgMinStream = gulp.src(config.src + config.imgSrc + '/**/*.*')

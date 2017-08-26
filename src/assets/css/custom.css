@@ -1,0 +1,95 @@
+.navbar, .navbar-logo {
+    max-height: 53px;
+}
+
+.wrapper {
+    overflow: hidden;
+}
+
+.main-wrapper {
+    padding: 60px 0;
+    max-width: 100vw;
+    margin: 0;
+}
+
+.container.card-block {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.product-card {
+    font-weight: 300;
+    padding: 0;
+}
+
+.product-card .image-container {
+    background: #f8f8f8;
+}
+
+.product-card .details {
+    padding: 0 10px;
+    justify-content: center;
+    text-align: center;
+}
+
+.product-card .name {
+    margin: 10px 0 5px 0;
+    max-height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.details .price {
+    color: #d9534f;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    max-height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-card:hover .image-container .link {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.image-container .link {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    bottom: 70px;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    transition: 0.5s;
+}
+
+.link .item {
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.link .item:hover {
+    cursor: pointer;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 1);
+}
+
+.link .item h5 {
+    font-size: 18px;
+    margin: 7px;
+}
+
+.item.link-view {
+    color: #2CA8FF;
+}
+
+.item.link-buy {
+    color: #d9534f;
+}
+
+.modal-dialog {
+    max-width: 80% !important;
+    justify-content: center;
+}

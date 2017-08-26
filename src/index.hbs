@@ -4,6 +4,27 @@
     {{> head}}
 </head>
 <body class="profile-page">
+{{> navbar}}
+<div class="wrapper">
+    <div class="page-header page-header-small clear-filter">
+        <div class="page-header-image" data-parallax="true" style="background-image: url('{{#relative
+                '/assets/img/bg/cover3.jpg' @file.path}}{{/relative}}');">
+        </div>
+        <div class="container">
+            <div class="content-center">
+                <h1 class="text-uppercase">Grab the SWAGS!</h1>
+                <h3>Be the Cool</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="row main-wrapper justify-content-center">
+    <div class="container card-block">
+        {{#each products as | product index |}}
+            {{> productCard product = product}}
+        {{/each}}
+    </div>
+</section>
 {{> scripts}}
 </body>
 </html>

@@ -1,6 +1,5 @@
 const dest = "dist";
 const src = 'src';
-const tmp = '.tmp';
 const assets = 'assets';
 const imgSrc = 'assets/img';
 const jsSrc = 'assets/js';
@@ -17,24 +16,15 @@ module.exports = {
     },
     clean: {
         src: [
-            tmp,
             dest
         ]
     },
-    envSetup: {
-        src: [
-            src + '/**/*.*',
-            '!' + src + '/**/..*',
-            '!' + src + '/' + assets + '/**/*.*'
-        ],
-        dest: tmp
-    },
     html: {
-        src: tmp,
+        src: src,
         dest: dest,
-        partialsSrc: tmp + '/' + partialsSrc,
-        helpersSrc: tmp + '/' + helpersSrc,
-        dataSrc: tmp + '/' + dataSrc
+        partialsSrc: src + '/' + partialsSrc,
+        helpersSrc: src + '/' + helpersSrc,
+        dataSrc: src + '/' + dataSrc
     },
     minify: {
         src: src,
@@ -46,21 +36,14 @@ module.exports = {
     },
     completeMigrate: {
         src: [
-            tmp + "/**/*.*",
-            "!" + tmp + "/**/*.{hbs,json}",
-            "!" + tmp + '/' + partialsSrc + "/**/*.*",
-            "!" + tmp + '/' + helpersSrc + "/**/*.*",
-            "!" + tmp + '/' + dataSrc + "/**/*.*"
+            src + "/**/*.*",
+            "!" + src + "/**/*.{hbs,json}",
+            "!" + src + '/' + partialsSrc + "/**/*.*",
+            "!" + src + '/' + helpersSrc + "/**/*.*",
+            "!" + src + '/' + dataSrc + "/**/*.*"
         ],
-        jsonSrc: [
-            tmp + '/manifest.json'
-        ],
+        jsonSrc: [],
         dest: dest
-    },
-    cleanBuild: {
-        src: [
-            tmp
-        ]
     },
     dev: {
         src: src,

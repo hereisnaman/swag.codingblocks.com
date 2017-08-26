@@ -1,12 +1,11 @@
-let gulp = require('gulp')
-let using = require('gulp-using')
-let clean = require('gulp-clean')
-
-let config = require('../config').clean
+let gulp = require('gulp'),
+    using = require('gulp-using'),
+    clean = require('gulp-clean'),
+    config = require('../config').clean;
 
 gulp.task('clean', function () {
     return gulp.src(config.src, {read: false}, {force: true})
         .pipe(using())
-        .pipe(clean())
-})
+        .pipe(clean());
+});
 

@@ -1,7 +1,6 @@
-let gulp = require('gulp');
-let using = require('gulp-using');
-
-let config = require("../config.js").completeMigrate;
+let gulp = require('gulp'),
+    using = require('gulp-using'),
+    config = require("../config.js").completeMigrate;
 
 gulp.task("dev_complete_migrate", ['dev_minify'], function () {
     let generalStream = gulp.src(config.src)
@@ -21,5 +20,5 @@ gulp.task("dev_complete_migrate", ['dev_minify'], function () {
             jsonStream.on('finish', resolve);
             jsonStream.on('error', reject);
         }),
-    ])
+    ]);
 });

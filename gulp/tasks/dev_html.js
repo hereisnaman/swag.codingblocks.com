@@ -6,7 +6,7 @@ let gulp = require('gulp'),
     path = require('path'),
     config = require('../config').html;
 
-gulp.task('dev_html', ['envSetup'], function () {
+gulp.task('dev_html', ['clean'], function () {
 
     return new Promise((resolve, reject) => {
         let stream = gulp.src([config.src + '/**/*.hbs', "!" + config.partialsSrc + '/**/*.hbs'])
@@ -19,16 +19,7 @@ gulp.task('dev_html', ['envSetup'], function () {
                 }
             }))
             .pipe(gulpData(function (file) {
-                return require('../../' + config.dataSrc + '/tShirts.json');
-            }))
-            .pipe(gulpData(function (file) {
-                return require('../../' + config.dataSrc + '/bags.json');
-            }))
-            .pipe(gulpData(function (file) {
-                return require('../../' + config.dataSrc + '/books.json');
-            }))
-            .pipe(gulpData(function (file) {
-                return require('../../' + config.dataSrc + '/pens.json');
+                return require('../../' + config.dataSrc + '/products.json');
             }))
             .pipe(hb({
                 partials: config.partialsSrc + '/**/*.hbs',

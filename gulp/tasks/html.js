@@ -1,14 +1,14 @@
-let gulp = require('gulp');
-let gulpData = require("gulp-data");
-let changed = require('gulp-changed');
-let using = require('gulp-using');
-let hb = require('gulp-hb');
-let ext = require('gulp-ext-replace');
-let minifyHtml = require('gulp-htmlmin');
-let path = require('path');
-let config = require('../config').html;
+let gulp = require('gulp'),
+    gulpData = require("gulp-data"),
+    changed = require('gulp-changed'),
+    using = require('gulp-using'),
+    hb = require('gulp-hb'),
+    ext = require('gulp-ext-replace'),
+    minifyHtml = require('gulp-htmlmin'),
+    path = require('path'),
+    config = require('../config').html;
 
-gulp.task('html', ['envSetup'], function () {
+gulp.task('html', ['clean'], function () {
 
     return new Promise((resolve, reject) => {
         let stream = gulp.src([config.src + '/**/*.hbs', "!" + config.partialsSrc + '/**/*.hbs'])
@@ -21,16 +21,7 @@ gulp.task('html', ['envSetup'], function () {
                 }
             }))
             .pipe(gulpData(function (file) {
-                return require('../../' + config.dataSrc + '/tShirts.json');
-            }))
-            .pipe(gulpData(function (file) {
-                return require('../../' + config.dataSrc + '/bags.json');
-            }))
-            .pipe(gulpData(function (file) {
-                return require('../../' + config.dataSrc + '/books.json');
-            }))
-            .pipe(gulpData(function (file) {
-                return require('../../' + config.dataSrc + '/pens.json');
+                return require('../../' + config.dataSrc + '/products.json');
             }))
             .pipe(hb({
                 partials: config.partialsSrc + '/**/*.hbs',
@@ -44,7 +35,7 @@ gulp.task('html', ['envSetup'], function () {
 
         stream.on('finish', resolve);
         stream.on('error', reject);
-    })
+    });
 });
 
 
